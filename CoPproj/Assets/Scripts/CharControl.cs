@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPSController : MonoBehaviour
+public class CharControl : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
     [SerializeField] Transform groundCheck;
@@ -30,6 +30,10 @@ public class FPSController : MonoBehaviour
     int fullHealth = 100;
     int currentHealth = 100;
     public int atkDamage = 5;
+    /*
+    public GameUI gameUI;
+    public HealthBar healthBar;
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -106,10 +110,12 @@ public class FPSController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        //healthBar.setHealth(currentHealth);
         Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             DestroyPlayer();
+            //gameUI.CheckGameState(GameUI.GameState.GameOver);
         }
     }
 
