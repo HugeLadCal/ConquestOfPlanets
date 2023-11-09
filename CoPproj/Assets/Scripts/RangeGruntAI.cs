@@ -126,11 +126,11 @@ public class RangeGruntAI : MonoBehaviour
         print(health); //debugging only, remove for final product
         if (health <= 0)
         {
-            DestroyGrunt();
+            DestroyRangeGrunt();
         }
     }
 
-    public void DestroyGrunt()
+    public void DestroyRangeGrunt()
     {
         Destroy(gameObject);
     }

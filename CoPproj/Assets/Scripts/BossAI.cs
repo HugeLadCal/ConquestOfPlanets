@@ -120,11 +120,11 @@ public class BossAI : MonoBehaviour
         print(health); //debugging only, remove for final product
         if (health <= 0)
         {
-            DestroyGrunt();
+            DestroyBoss();
         }
     }
 
-    public void DestroyGrunt()
+    public void DestroyBoss()
     {
         Destroy(gameObject);
     }
