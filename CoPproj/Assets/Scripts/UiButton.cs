@@ -14,6 +14,18 @@ namespace UI
             SceneManager.LoadScene(sceneName);
         }
 
+        // KH - Activate a inputted gameobject.
+        public void ActivateGameObject(GameObject obj)
+        {
+            obj.SetActive(true);
+        }
+
+        // KH - Deactivate a inputted gameobject.
+        public void DeactivateGameObject(GameObject obj)
+        {
+            obj.SetActive(false);
+        }
+
         // KH - Closes the build application.
         public void QuitGame()
         {
