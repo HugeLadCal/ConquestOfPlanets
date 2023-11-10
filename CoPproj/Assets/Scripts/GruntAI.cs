@@ -29,6 +29,10 @@ public class GruntAI : MonoBehaviour
     public int health = 5;
     public int dmgDealt = 5;
 
+    public AudioSource source;
+    public AudioClip enemyDead;
+    public AudioClip playerDetected;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -100,6 +104,7 @@ public class GruntAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        source.PlayOneShot(playerDetected);
         //more animation BS (if melee no further code needed here)
 
         if (!hasAttacked)
@@ -128,6 +133,7 @@ public class GruntAI : MonoBehaviour
     public void DestroyGrunt()
     {
         Destroy(gameObject);
+        source.PlayOneShot(enemyDead);
     }
 
     private void OnTriggerEnter(Collider other)

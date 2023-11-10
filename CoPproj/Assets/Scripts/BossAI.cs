@@ -28,6 +28,10 @@ public class BossAI : MonoBehaviour
     public int health = 100;
     public int dmgDealt = 10;
 
+    public AudioSource source;
+    public AudioClip enemyDead;
+    public AudioClip playerDetected;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -99,6 +103,7 @@ public class BossAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        source.PlayOneShot(playerDetected);
         //more animation BS (if melee no further code needed here)
 
         if (!hasAttacked)
@@ -127,6 +132,7 @@ public class BossAI : MonoBehaviour
     public void DestroyBoss()
     {
         Destroy(gameObject);
+        source.PlayOneShot(enemyDead);
     }
 
     private void OnTriggerEnter(Collider other)

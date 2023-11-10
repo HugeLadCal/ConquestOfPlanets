@@ -34,6 +34,9 @@ public class CharControl : MonoBehaviour
     public GameUI gameUI;
     public HealthBar healthBar;
     */
+    public AudioSource source;
+    public AudioClip footstep;
+    public AudioClip playerHit;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +99,7 @@ public class CharControl : MonoBehaviour
         Vector3 move = (transform.right * horizAxis) + (transform.forward * vertAxis);
         controller.Move(move * moveSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+        source.PlayOneShot(footstep);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -112,6 +116,7 @@ public class CharControl : MonoBehaviour
         currentHealth -= damage;
         //healthBar.setHealth(currentHealth);
         Debug.Log(currentHealth);
+        source.PlayOneShot(playerHit);
         if (currentHealth <= 0)
         {
             DestroyPlayer();

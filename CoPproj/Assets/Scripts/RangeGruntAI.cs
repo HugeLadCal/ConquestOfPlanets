@@ -32,6 +32,10 @@ public class RangeGruntAI : MonoBehaviour
     public GameObject projectileObject; //prefabbed projectile
     public float projectileSpeed = 5; //change for balancing
 
+    public AudioSource source;
+    public AudioClip enemyDead;
+    public AudioClip playerDetected;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -103,6 +107,7 @@ public class RangeGruntAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        source.PlayOneShot(playerDetected);
         //more animation BS (if melee no further code needed here)
 
         if (!hasAttacked)
@@ -133,6 +138,7 @@ public class RangeGruntAI : MonoBehaviour
     public void DestroyRangeGrunt()
     {
         Destroy(gameObject);
+        source.PlayOneShot(enemyDead);
     }
 
     //in case of errnoeous player damage, send this to the shadowlands
