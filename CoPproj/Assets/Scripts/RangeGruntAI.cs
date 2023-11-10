@@ -36,11 +36,15 @@ public class RangeGruntAI : MonoBehaviour
     public AudioClip enemyDead;
     public AudioClip playerDetected;
 
+    // KH - Some variables/references I added for animation support.
+    private Animator anim;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         playerCode = player.GetComponent<CharControl>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -82,6 +86,9 @@ public class RangeGruntAI : MonoBehaviour
         {
             patrolPointSet = false;
         }
+
+        // KH
+        anim.Play("Walking");
     }
 
     private void GeneratePatrolPoint()
@@ -101,6 +108,9 @@ public class RangeGruntAI : MonoBehaviour
     {
         agent.SetDestination(player.position);
         //insert animation bollocks here
+
+        // KH
+        anim.Play("Running");
     }
 
     private void AttackPlayer()
@@ -117,6 +127,9 @@ public class RangeGruntAI : MonoBehaviour
             //audio
             hasAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+            // KH
+            anim.Play("Attack");
         }
     }
 
