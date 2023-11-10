@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UI;
 
 namespace interactable
 {
@@ -24,7 +25,7 @@ namespace interactable
         // KH - Called before 'void Start()'.
         void Awake()
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player").transform;
             playerUI = FindObjectOfType<PlayerUI>();
         }
 
