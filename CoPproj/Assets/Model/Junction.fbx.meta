@@ -3,7 +3,32 @@ guid: 0889625e142d9c44686f8d7a06c5c493
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HallEmis
+    second: {fileID: 2100000, guid: ab1816c1e3a6e3b47bf3dab6c9945ab5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HallGrill
+    second: {fileID: 2100000, guid: ad21e4de39be4b648a0a48b871cccea1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HallLights
+    second: {fileID: 2100000, guid: 4bddedfbacde689419567934075053cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HallMetal
+    second: {fileID: 2100000, guid: 52a06803a26e95747bba28b50c520775, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HallMetalDark
+    second: {fileID: 2100000, guid: 2f0710d390834504ea0e8c1a0e9dbf31, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
