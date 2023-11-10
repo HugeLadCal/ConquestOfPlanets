@@ -123,7 +123,7 @@ public class GruntAI : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        print(health); //debugging only, remove for final product
+        Debug.Log(health); //debugging only, remove for final product
         if(health <= 0)
         {
             DestroyGrunt();
